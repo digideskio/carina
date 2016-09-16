@@ -9,6 +9,7 @@ script:
 - make cross-build
 before_deploy:
   - cd bin
+  - rvm install ruby-2.2.0
   - rvm use 2.2
 deploy:
   - provider: cloudfiles
@@ -19,5 +20,4 @@ deploy:
     container: carina-downloads
     skip_cleanup: true
     on:
-      repo: getcarina/carina
-      tags: true
+      branch: fix-travis-deploy
