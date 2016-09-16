@@ -1,8 +1,6 @@
 language: go
 go:
 - 1.5
-rvm:
-- 2.2
 install:
 - go get ./...
 script:
@@ -11,6 +9,7 @@ script:
 - make cross-build
 before_deploy:
   - cd bin
+  - rvm use 2.2
 deploy:
   - provider: cloudfiles
     username: carolynvsrax
